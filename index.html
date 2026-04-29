@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DigiTech Visioner | Transformasi Digital Masa Depan</title>
+  <meta name="description" content="DigiTech Visioner menghadirkan solusi digital modern untuk bisnis yang ingin tumbuh lebih cepat, cerdas, dan berkelanjutan." />
+  <style>
+    :root {
+      --bg: #07111f;
+      --bg-soft: #0d1b2f;
+      --card: rgba(255, 255, 255, 0.06);
+      --card-border: rgba(255, 255, 255, 0.12);
+      --text: #eaf2ff;
+      --muted: #a8b5cc;
+      --primary: #4fd1ff;
+      --secondary: #7c5cff;
+      --accent: #19f0b4;
+      --danger: #ff6b81;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      --radius: 22px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(124, 92, 255, 0.20), transparent 28%),
+        radial-gradient(circle at top right, rgba(79, 209, 255, 0.18), transparent 30%),
+        linear-gradient(180deg, #07111f 0%, #081426 45%, #06101c 100%);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .blur-orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.35;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .orb-1 {
+      width: 260px;
+      height: 260px;
+      background: var(--secondary);
+      top: 60px;
+      left: -60px;
+    }
+
+    .orb-2 {
+      width: 320px;
+      height: 320px;
+      background: var(--primary);
+      right: -80px;
+      top: 160px;
+    }
+
+    .orb-3 {
+      width: 240px;
+      height: 240px;
+      background: var(--accent);
+      left: 35%;
+      bottom: 40px;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      background: rgba(7, 17, 31, 0.65);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      min-height: 74px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-weight: 800;
+      letter-spacing: 0.3px;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      display: grid;
+      place-items: center;
+      color: #07111f;
+      font-weight: 900;
+      box-shadow: var(--shadow);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: #fff;
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 18px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #06101c;
+      font-weight: 700;
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      padding: 84px 0 64px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      color: var(--primary);
+      font-size: 0.92rem;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      line-height: 1.05;
+      margin-bottom: 18px;
+      letter-spacing: -0.03em;
+    }
+
+    .hero .gradient {
+      background: linear-gradient(135deg, #ffffff 15%, var(--primary) 45%, var(--accent) 90%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.06rem;
+      max-width: 620px;
+      margin-bottom: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: 0.25s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #06101c;
+      box-shadow: var(--shadow);
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.04);
+      color: #fff;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .stat {
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.55rem;
+      color: #fff;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 520px;
+    }
+
+    .glass-panel {
+      position: absolute;
+      border-radius: 28px;
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(20px);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .dashboard-card {
+      inset: 20px 0 30px 70px;
+      padding: 24px;
+    }
+
+    .card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .label {
+      font-size: 0.82rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .big-number {
+      font-size: 2.4rem;
+      font-weight: 800;
+      margin-top: 6px;
+    }
+
+    .chart {
+      margin-top: 22px;
+      height: 210px;
+      border-radius: 22px;
+      position: relative;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)),
+        repeating-linear-gradient(
+          to top,
+          rgba(255,255,255,0.08) 0,
+          rgba(255,255,255,0.08) 1px,
+          transparent 1px,
+          transparent 44px
+        );
+      overflow: hidden;
+    }
+
+    .chart-line {
+      position: absolute;
+      inset: 0;
+    }
+
+    .mini-card {
+      width: 220px;
+      padding: 18px;
+      top: 0;
+      left: 0;
+    }
+
+    .mini-card.bottom {
+      width: 240px;
+      left: auto;
+      right: -10px;
+      bottom: 0;
+      top: auto;
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .mini-box {
+      padding: 14px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .mini-box strong {
+      display: block;
+      color: #fff;
+      font-size: 1.1rem;
+      margin-top: 6px;
+    }
+
+    section {
+      padding: 34px 0;
+    }
+
+    .section-title {
+      max-width: 700px;
+      margin: 0 auto 18px;
+      text-align: center;
+    }
+
+    .section-title h2 {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      margin-bottom: 12px;
+      letter-spacing: -0.03em;
+    }
+
+    .section-title p {
+      color: var(--muted);
+    }
+
+    .feature-grid,
+    .service-grid,
+    .insight-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .feature-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin-top: 26px;
+    }
+
+    .service-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      margin-top: 28px;
+    }
+
+    .insight-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin-top: 28px;
+    }
+
+    .card {
+      padding: 24px;
+      border-radius: var(--radius);
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
+    }
+
+    .icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(79,209,255,0.22), rgba(124,92,255,0.26));
+      font-size: 1.3rem;
+      margin-bottom: 18px;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+
+    .card p,
+    .card li {
+      color: var(--muted);
+    }
+
+    .service-card ul {
+      list-style: none;
+      margin-top: 14px;
+    }
+
+    .service-card li {
+      margin-bottom: 8px;
+      padding-left: 18px;
+      position: relative;
+    }
+
+    .service-card li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .about-panel {
+      min-height: 380px;
+      position: relative;
+      border-radius: 28px;
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, rgba(79,209,255,0.16), rgba(124,92,255,0.18)),
+        rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: var(--shadow);
+    }
+
+    .pulse,
+    .ring,
+    .node {
+      position: absolute;
+      border-radius: 50%;
+    }
+
+    .pulse {
+      inset: 50% auto auto 50%;
+      width: 120px;
+      height: 120px;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, rgba(25,240,180,0.9), rgba(25,240,180,0.05));
+      box-shadow: 0 0 60px rgba(25,240,180,0.45);
+    }
+
+    .ring {
+      border: 1px solid rgba(255,255,255,0.12);
+      inset: 50% auto auto 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .ring.r1 { width: 180px; height: 180px; }
+    .ring.r2 { width: 280px; height: 280px; }
+    .ring.r3 { width: 380px; height: 380px; }
+
+    .node {
+      width: 16px;
+      height: 16px;
+      background: #fff;
+      box-shadow: 0 0 20px rgba(255,255,255,0.6);
+    }
+
+    .node.n1 { top: 18%; left: 50%; }
+    .node.n2 { top: 50%; left: 16%; }
+    .node.n3 { top: 50%; right: 16%; }
+    .node.n4 { bottom: 18%; left: 50%; }
+
+    .about-copy .badge {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(25,240,180,0.10);
+      color: var(--accent);
+      border: 1px solid rgba(25,240,180,0.2);
+      font-size: 0.9rem;
+    }
+
+    .about-copy h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      margin-bottom: 14px;
+      line-height: 1.1;
+    }
+
+    .about-copy p {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .about-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .about-item {
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .cta {
+      padding: 80px 0 90px;
+    }
+
+    .cta-panel {
+      padding: 38px;
+      border-radius: 30px;
+      background:
+        linear-gradient(135deg, rgba(79,209,255,0.16), rgba(124,92,255,0.18)),
+        rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .cta-panel h2 {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+
+    .cta-panel p {
+      color: var(--muted);
+      max-width: 680px;
+    }
+
+    footer {
+      padding: 28px 0 40px;
+      color: var(--muted);
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 1080px) {
+      .hero-grid,
+      .about,
+      .service-grid,
+      .feature-grid,
+      .insight-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .service-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .hero-visual {
+        min-height: 460px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 12px 0;
+      }
+
+      .nav-links {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .hero {
+        padding-top: 56px;
+      }
+
+      .hero-grid,
+      .about,
+      .feature-grid,
+      .service-grid,
+      .insight-grid,
+      .hero-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual {
+        min-height: 420px;
+      }
+
+      .dashboard-card {
+        inset: 50px 0 20px 0;
+      }
+
+      .mini-card {
+        width: 190px;
+      }
+
+      .mini-card.bottom {
+        right: 0;
+      }
+
+      .cta-panel {
+        padding: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="blur-orb orb-1"></div>
+  <div class="blur-orb orb-2"></div>
+  <div class="blur-orb orb-3"></div>
+
+  <header class="topbar">
+    <div class="container nav">
+      <a href="#home" class="brand">
+        <span class="brand-mark">D</span>
+        <span>Refin_2388010039</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#layanan">Layanan</a>
+        <a href="#tentang">Tentang</a>
+        <a href="#insight">Insight</a>
+        <a href="#kontak">Kontak</a>
+      </nav>
+      <a class="nav-cta" href="#kontak">Mulai Sekarang</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">⚡ Solusi digital untuk masa depan bisnis</span>
+          <h1>Bangun ekosistem <span class="gradient">DigiTech yang visioner</span> dan siap memimpin perubahan.</h1>
+          <p>
+            Kami membantu brand, startup, dan perusahaan modern menghadirkan pengalaman digital yang lebih cepat, lebih cerdas, dan lebih berdampak melalui strategi, teknologi, dan desain yang menyatu.
+          </p>
+          <div class="hero-actions">
+            <a href="#kontak" class="btn btn-primary">Jadwalkan Konsultasi</a>
+            <a href="#layanan" class="btn btn-secondary">Lihat Solusi Kami</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat">
+              <strong>120+</strong>
+              <span>Proyek digital terlaksana</span>
+            </div>
+            <div class="stat">
+              <strong>98%</strong>
+              <span>Tingkat kepuasan klien</span>
+            </div>
+            <div class="stat">
+              <strong>24/7</strong>
+              <span>Monitoring & support aktif</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="glass-panel mini-card">
+            <div class="label">Realtime System</div>
+            <div class="big-number">99.9%</div>
+            <div class="mini-grid">
+              <div class="mini-box">Server<strong>Optimal</strong></div>
+              <div class="mini-box">Traffic<strong>+145%</strong></div>
+            </div>
+          </div>
+
+          <div class="glass-panel dashboard-card">
+            <div class="card-head">
+              <div>
+                <div class="label">Growth Performance</div>
+                <div class="big-number">Digital Acceleration</div>
+              </div>
+              <div class="label">AI • Cloud • Security</div>
+            </div>
+
+            <div class="chart">
+              <svg class="chart-line" viewBox="0 0 600 220" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="fillLine" x1="0" x2="0" y1="0" y2="1">
+                    <stop offset="0%" stop-color="rgba(79,209,255,0.55)" />
+                    <stop offset="100%" stop-color="rgba(79,209,255,0)" />
+                  </linearGradient>
+                </defs>
+                <path d="M0,180 C70,168 95,132 145,128 C205,122 230,162 285,146 C345,128 380,56 440,48 C500,41 545,74 600,18 L600,220 L0,220 Z" fill="url(#fillLine)"></path>
+                <path d="M0,180 C70,168 95,132 145,128 C205,122 230,162 285,146 C345,128 380,56 440,48 C500,41 545,74 600,18" fill="none" stroke="#4fd1ff" stroke-width="5" stroke-linecap="round"></path>
+                <circle cx="600" cy="18" r="8" fill="#19f0b4"></circle>
+              </svg>
+            </div>
+          </div>
+
+          <div class="glass-panel mini-card bottom">
+            <div class="label">Smart Insights</div>
+            <div class="mini-grid">
+              <div class="mini-box">AI Ops<strong>Ready</strong></div>
+              <div class="mini-box">Security<strong>Active</strong></div>
+              <div class="mini-box">Cloud<strong>Elastic</strong></div>
+              <div class="mini-box">Data<strong>Live</strong></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-title">
+          <h2>Mengapa DigiTech Visioner?</h2>
+          <p>Kami tidak sekadar membangun website atau sistem. Kami merancang fondasi digital yang relevan untuk hari ini dan adaptif untuk masa depan.</p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="card">
+            <div class="icon">🚀</div>
+            <h3>Inovasi yang terukur</h3>
+            <p>Setiap solusi dirancang berdasarkan performa, efisiensi operasional, dan potensi pertumbuhan nyata untuk bisnis Anda.</p>
+          </article>
+          <article class="card">
+            <div class="icon">🧠</div>
+            <h3>Strategi berbasis data</h3>
+            <p>Dari dashboard hingga automasi, keputusan digital diperkuat oleh insight yang presisi dan mudah ditindaklanjuti.</p>
+          </article>
+          <article class="card">
+            <div class="icon">🔐</div>
+            <h3>Keamanan sejak awal</h3>
+            <p>Kami memadukan performa dan proteksi agar infrastruktur tetap stabil, aman, dan siap diskalakan.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="layanan">
+      <div class="container">
+        <div class="section-title">
+          <h2>Layanan utama kami</h2>
+          <p>Solusi end-to-end untuk transformasi digital yang lebih modern, efektif, dan visioner.</p>
+        </div>
+
+        <div class="service-grid">
+          <article class="card service-card">
+            <div class="icon">🌐</div>
+            <h3>Web Experience</h3>
+            <p>Website premium yang cepat, elegan, mobile-ready, dan berorientasi konversi.</p>
+            <ul>
+              <li>Landing page modern</li>
+              <li>Company profile</li>
+              <li>UI/UX interaktif</li>
+            </ul>
+          </article>
+          <article class="card service-card">
+            <div class="icon">☁️</div>
+            <h3>Cloud Infrastructure</h3>
+            <p>Infrastruktur cloud yang andal untuk performa tinggi dan skalabilitas jangka panjang.</p>
+            <ul>
+              <li>Deployment server</li>
+              <li>Monitoring sistem</li>
+              <li>Optimasi performa</li>
+            </ul>
+          </article>
+          <article class="card service-card">
+            <div class="icon">🤖</div>
+            <h3>Automation & AI</h3>
+            <p>Automasi workflow dan integrasi AI untuk mempercepat proses kerja serta meningkatkan akurasi.</p>
+            <ul>
+              <li>Chat assistant</li>
+              <li>Workflow automation</li>
+              <li>Analitik cerdas</li>
+            </ul>
+          </article>
+          <article class="card service-card">
+            <div class="icon">📈</div>
+            <h3>Growth Enablement</h3>
+            <p>Pondasi digital untuk meningkatkan awareness, engagement, dan pertumbuhan bisnis.</p>
+            <ul>
+              <li>SEO teknikal</li>
+              <li>Conversion strategy</li>
+              <li>Digital optimization</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="tentang">
+      <div class="container about">
+        <div class="about-panel" aria-hidden="true">
+          <div class="pulse"></div>
+          <div class="ring r1"></div>
+          <div class="ring r2"></div>
+          <div class="ring r3"></div>
+          <div class="node n1"></div>
+          <div class="node n2"></div>
+          <div class="node n3"></div>
+          <div class="node n4"></div>
+        </div>
+
+        <div class="about-copy">
+          <span class="badge">Tentang DigiTech Visioner</span>
+          <h2>Teknologi yang terasa futuristik, tapi tetap relevan untuk kebutuhan nyata.</h2>
+          <p>
+            DigiTech Visioner hadir untuk membantu organisasi bergerak lebih lincah di era digital. Kami percaya masa depan dibangun dari sistem yang sederhana, cerdas, dan mampu berkembang seiring kebutuhan bisnis.
+          </p>
+          <p>
+            Pendekatan kami menggabungkan desain, teknologi, dan strategi pertumbuhan dalam satu pengalaman yang terintegrasi.
+          </p>
+          <div class="about-list">
+            <div class="about-item"><strong>Vision-led execution:</strong> ide besar diterjemahkan menjadi produk digital yang konkret.</div>
+            <div class="about-item"><strong>Human-centered technology:</strong> teknologi yang mudah digunakan dan memberi dampak nyata.</div>
+            <div class="about-item"><strong>Scalable foundation:</strong> siap tumbuh dari fase awal hingga skala enterprise.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="insight">
+      <div class="container">
+        <div class="section-title">
+          <h2>Arah masa depan digital</h2>
+          <p>Tiga fokus yang kami prioritaskan untuk menciptakan bisnis yang lebih adaptif di era perubahan cepat.</p>
+        </div>
+
+        <div class="insight-grid">
+          <article class="card">
+            <div class="icon">⚙️</div>
+            <h3>Operasional otomatis</h3>
+            <p>Pengurangan pekerjaan manual melalui sistem yang saling terhubung, responsif, dan hemat waktu.</p>
+          </article>
+          <article class="card">
+            <div class="icon">📊</div>
+            <h3>Keputusan real-time</h3>
+            <p>Dashboard live, pelaporan cerdas, dan pengukuran performa yang membantu tim bergerak lebih cepat.</p>
+          </article>
+          <article class="card">
+            <div class="icon">🛰️</div>
+            <h3>Ekosistem yang terkoneksi</h3>
+            <p>Website, data, cloud, security, dan automasi dibangun sebagai satu alur digital yang utuh.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="kontak">
+      <div class="container">
+        <div class="cta-panel">
+          <div>
+            <h2>Siap membangun web DigiTech yang visioner?</h2>
+            <p>Ubah halaman server default Anda menjadi representasi brand digital yang modern, berkelas, dan siap menarik peluang baru.</p>
+          </div>
+          <div style="display:flex; gap:12px; flex-wrap:wrap;">
+            <a href="mailto:hello@digitechvisioner.com" class="btn btn-primary">Hubungi Kami</a>
+            <a href="#home" class="btn btn-secondary">Kembali ke Atas</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>
+        <strong>DigiTech Visioner</strong><br />
+        Membangun masa depan digital yang cepat, cerdas, dan berdampak.
+      </div>
+      <div class="footer-links">
+        <a href="#layanan">Layanan</a>
+        <a href="#tentang">Tentang</a>
+        <a href="#insight">Insight</a>
+      </div>
+      <div>© <span id="year"></span> DigiTech Visioner. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
